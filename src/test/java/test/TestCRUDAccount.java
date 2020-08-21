@@ -9,15 +9,16 @@ import domain.Login;
 
 @Test
 public class TestCRUDAccount extends TestingBase {
-	@Test (dataProvider = "accountInfo")
+	@Test //(dataProvider = "accountInfo")
 	public void createAccount() {
 		WebDriver driver=DriverConfig.getDriverInitializer("chrome");
+		driver.get(url);
 		Login login=new Login(driver);
 		login.login(adminUser, password);
 	}
-	@DataProvider(name="accountInfo")
+	/*@DataProvider(name="accountInfo")
 	public Object[][] data() {
 		Object[][] ob=new Object[1][1]; //todo el tema de excel o lo que vayamos a usar.
 		return ob;
-	}
+	}*/
 }
