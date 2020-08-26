@@ -17,17 +17,10 @@ public class TestCRUDAccount extends TestingBase {
 	
 	@Test (dataProvider = "accountInfo")
 	public void createAccount() {
-
-		WebDriver driver=DriverConfig.getDriverInitializer("chrome");
-		driver.get(url);
-		Login login=new Login(driver);
-		login.login(adminUser, password);
+		
+		WebDriver driver=initializeAndLogin("chrome");
 		Global g=new Global(driver);
 		g.goToApps();
-
-		WebDriver driver=initializeAndLogin();
-		
-
 	}
 	
 	@DataProvider(name="accountInfo")
@@ -37,8 +30,8 @@ public class TestCRUDAccount extends TestingBase {
 		return ob;
 	}
 	
-	public WebDriver initializeAndLogin() {
-		WebDriver driver=DriverConfig.getDriverInitializer("chrome"); 
+	public WebDriver initializeAndLogin(String browser) {
+		WebDriver driver=DriverConfig.getDriverInitializer(browser); 
 		Login login=new Login(driver);		
 		login.login(adminUser, password);
 		return driver;
