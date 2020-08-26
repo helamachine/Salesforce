@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Setup.DriverConfig;
-
+import domain.Account;
 import domain.Global;
 
 import Setup.ExcelReader;
@@ -20,6 +20,8 @@ public class TestCRUDAccount extends TestingBase {
 		WebDriver driver=initializeAndLogin("chrome");
 		Global g=new Global(driver);
 		g.goToApps("Accounts");
+		Account a=new Account(driver);
+		a.createAccount(accountName);
 	}
 	
 	/*@DataProvider(name="accountInfo")
