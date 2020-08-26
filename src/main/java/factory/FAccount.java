@@ -11,6 +11,8 @@ import constant.CtsAccount;
 public class FAccount {
 	
 	WebDriver driver;
+	//ACCOUNT TABS
+	@FindBy (css = CtsAccount.detailTab)private WebElement detailTab;
 	
 	//ACCOUNT INFO
 	@FindBy (xpath = CtsAccount.AccountName)private WebElement accountName;
@@ -58,6 +60,12 @@ public class FAccount {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		}
+
+
+	
+	public WebElement getDetailTab() {
+		return detailTab;
+	}
 
 
 

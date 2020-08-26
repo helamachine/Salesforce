@@ -11,6 +11,7 @@ import domain.Global;
 import Setup.ExcelReader;
 
 import domain.Login;
+import factory.FAccount;
 
 @Test
 public class TestCRUDAccount extends TestingBase {
@@ -21,7 +22,8 @@ public class TestCRUDAccount extends TestingBase {
 		Global g=new Global(driver);
 		g.goToApps("Accounts");
 		Account a=new Account(driver);
-		a.createAccount(accountName);
+		FAccount fa=new FAccount(driver);
+		fa.getDetailTab().click();
 	}
 	
 	/*@DataProvider(name="accountInfo")
