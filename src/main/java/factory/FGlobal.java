@@ -14,9 +14,9 @@ public class FGlobal {
 	
 	//APPBOX
 	@FindBy (css = CtsGlobal.btnSearchAppBox)private WebElement btnSearchAppBox;
-	@FindBy(css = CtsGlobal.inputSearchAppBox)private WebElement inputSearchAppBox;
+	@FindBy(xpath = CtsGlobal.inputSearchAppBox)private WebElement inputSearchAppBox;
 	@FindBy(css = CtsGlobal.workspace)private WebElement workspace;
-	
+	@FindBy(css = CtsGlobal.imgToWait)private WebElement imgToWait;
 	//FANTASTIC SOLUTION FOR WAITING THE SPINNER
 	@FindBy (css = CtsGlobal.spinner)private WebElement spinner;
 	
@@ -58,6 +58,11 @@ public class FGlobal {
 		return workspace;
 	}
 
+	
+	public WebElement getImgToWait() {
+		return imgToWait;
+	}
+
 
 	public WebElement getSpinner() {
 		return spinner;
@@ -97,8 +102,19 @@ public class FGlobal {
 	public WebElement getCancelButton() {
 		return cancelButton;
 	}
+	public By getImgLocator() {
+		return By.xpath(CtsGlobal.imgToWait);
+	}
 	
 	public WebElement getXpathTab(String tab) {
 		return driver.findElement(By.xpath(CtsGlobal.xpathTab.replace("$x", tab)));
+	}
+	
+	public WebElement getItemLink(String item) {
+		return driver.findElement(By.cssSelector(CtsGlobal.itemLink.replace("$x", item)));
+	}
+	
+	public WebElement getItemId(String item) {
+		return driver.findElement(By.cssSelector(CtsGlobal.itemId.replace("$x", item)));
 	}
 }

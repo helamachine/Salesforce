@@ -15,24 +15,24 @@ import domain.Login;
 @Test
 public class TestCRUDAccount extends TestingBase {
 	
-	@Test (dataProvider = "accountInfo")
+	@Test //(dataProvider = "accountInfo")
 	public void createAccount() {
-		
 		WebDriver driver=initializeAndLogin("chrome");
 		Global g=new Global(driver);
-		g.goToApps();
+		g.goToApps("Accounts");
 	}
 	
-	@DataProvider(name="accountInfo")
+	/*@DataProvider(name="accountInfo")
 	public Object[][] data() {
 		ExcelReader excel=new ExcelReader("Data");
 		Object[][] ob=excel.getData();
 		return ob;
-	}
+	}*/
 	
 	public WebDriver initializeAndLogin(String browser) {
 		WebDriver driver=DriverConfig.getDriverInitializer(browser); 
-		Login login=new Login(driver);		
+		driver.get(url);
+		Login login=new Login(driver);
 		login.login(adminUser, password);
 		return driver;
 	}
