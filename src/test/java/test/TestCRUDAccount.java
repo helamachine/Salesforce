@@ -5,20 +5,29 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Setup.DriverConfig;
+import Setup.ExcelReader;
 import domain.Login;
 
 @Test
 public class TestCRUDAccount extends TestingBase {
+	
 	@Test (dataProvider = "accountInfo")
 	public void createAccount() {
-		WebDriver driver=DriverConfig.getDriverInitializer("chrome"); //driver inicializado
-		Login login=new Login(driver);		//Objecto Login creado
-		login.login(adminUser, password);	//Login realizado
-											//Resto del codigo necesario para crear la/s account/s
+		WebDriver driver=initializeAndLogin();
+		
 	}
+	
 	@DataProvider(name="accountInfo")
 	public Object[][] data() {
-		Object[][] ob=new Object[1][1]; //todo el tema de excel o lo que vayamos a usar.
+		ExcelReader excel=new ExcelReader("Data");
+		Object[][] ob=excel.getData();
 		return ob;
+	}
+	
+	public WebDriver initializeAndLogin() {
+		WebDriver driver=DriverConfig.getDriverInitializer("chrome"); 
+		Login login=new Login(driver);		
+		login.login(adminUser, password);
+		return driver;
 	}
 }
