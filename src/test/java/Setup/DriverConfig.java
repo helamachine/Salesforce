@@ -54,7 +54,7 @@ public class DriverConfig {
 		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/drivers/chromedriver.exe");
 		System.setProperty("webdriver.chrome.silentOutput", "true");
 		WebDriver driver = new ChromeDriver(options);
-		
+		driver.manage().window().maximize();
 		return driver;
 
 	}

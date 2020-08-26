@@ -2,6 +2,9 @@ package constant;
 
 public class CtsAccount {
 	
+	//ACCOUNT TABS
+	public static final String detailTab = "#detailTab__item";
+	
 	//ACCOUNT INFO
 	public static final String AccountName = "//span[text()='Account Name']/parent::label/following-sibling::input";
 	public static final String ddMenuRating = "//div/span/span[text()='Rating']/parent::span/following-sibling::div";
@@ -42,5 +45,12 @@ public class CtsAccount {
 	
 	//DESCRIPTION INFO
 	public static final String description = "('textarea')[2]";
+	
+	//ACCOUNT DETAILS
+	public static final String editButton = "button[title = 'Edit $x']";
+	
+	//INNER EDIT DETAILS
+	public static final String editfields ="//label[text() = '$x']/following-sibling::div";
+	
 	
 }

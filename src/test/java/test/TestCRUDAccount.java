@@ -5,12 +5,13 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Setup.DriverConfig;
-
+import domain.Account;
 import domain.Global;
 
 import Setup.ExcelReader;
 
 import domain.Login;
+import factory.FAccount;
 
 @Test
 public class TestCRUDAccount extends TestingBase {
@@ -18,8 +19,10 @@ public class TestCRUDAccount extends TestingBase {
 	@Test //(dataProvider = "accountInfo")
 	public void createAccount() {
 		WebDriver driver=initializeAndLogin("chrome");
-		Global g=new Global(driver);
-		g.goToApps("Accounts");
+		FAccount fa=new FAccount(driver);
+		fa.getDetailTab().click();
+		
+		
 	}
 	
 	/*@DataProvider(name="accountInfo")
