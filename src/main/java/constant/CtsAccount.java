@@ -12,7 +12,7 @@ public class CtsAccount {
 	public static final String parentAccount = "input[title='Search Accounts']"; //para seleccionar la cuenta a enparentar le mandamos un ARROWDOWN Y ENTER
 	public static final String accountNumber = "//label/span[text()='Account Number']/parent::label/following-sibling::input";
 	public static final String webSite = "//label/span[text()='Website']/parent::label/following-sibling::input";
-	public static final String accountsite = "//label/span[text()='Account Site']/parent::label/following-sibling::input";
+	public static final String accountSite = "//label/span[text()='Account Site']/parent::label/following-sibling::input";
 	public static final String tickerSymbol = "//label/span[text()='Ticker Symbol']/parent::label/following-sibling::input";
 	public static final String menuText = "--None--"; //lo indexamos luego
 	public static final String employees = "//label/span[text()='Employees']/parent::label/following-sibling::input";
