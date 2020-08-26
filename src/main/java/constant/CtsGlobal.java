@@ -3,8 +3,8 @@ package constant;
 public class CtsGlobal {
 		//AppBox
 		public static final String btnSearchAppBox = ".slds-icon-waffle";
-		public static final String inputSearchAppBox = "#input-62";
-		
+		public static final String inputSearchAppBox = "//input[@placeholder = 'Search apps and items...']/parent::div";
+		public static final String imgToWait = ".tileImg";
 		public static final String workspace="//div[@data-aura-class = 'oneWorkspace2']";
 		//FANTASTIC SOLUTION FOR WAITING THE SPINNER
 		public static final String spinner = "#spinner-container";	
@@ -20,4 +20,6 @@ public class CtsGlobal {
 		
 		//==================REPLACEABLE==========================
 		public static final String xpathTab="//header[@id='oneHeader']/div[@class='bBottom']//one-app-nav-bar-item-root[@data-id='$x']";
+		public static final String itemLink="a[data-label='$x']";
+		public static final String itemId="#$x";
 }
