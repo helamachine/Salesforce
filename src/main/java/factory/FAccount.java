@@ -1,6 +1,7 @@
 package factory;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -243,9 +244,7 @@ public class FAccount {
 	public WebElement getDescription() {
 		return description;
 	}
-	
-	
-	
+
 }
 
 

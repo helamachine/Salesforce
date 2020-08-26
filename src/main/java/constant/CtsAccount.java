@@ -3,7 +3,7 @@ package constant;
 public class CtsAccount {
 	
 	//ACCOUNT INFO
-	public static final String AccountName = "//label/span[text()='Account Name']/parent::label/following-sibling::input";
+	public static final String AccountName = "//span[text()='Account Name']/parent::label/following-sibling::input";
 	public static final String ddMenuRating = "//div/span/span[text()='Rating']/parent::span/following-sibling::div";
 	//public static final String billingStreet = "//textarea[contains(@placeholder,'Billing')]";
 	public static final String rating = "a[title='$x']";
