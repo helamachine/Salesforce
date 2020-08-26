@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Setup.DriverConfig;
+import domain.Global;
 import domain.Login;
 
 @Test
@@ -15,6 +16,8 @@ public class TestCRUDAccount extends TestingBase {
 		driver.get(url);
 		Login login=new Login(driver);
 		login.login(adminUser, password);
+		Global g=new Global(driver);
+		g.goToApps();
 	}
 	/*@DataProvider(name="accountInfo")
 	public Object[][] data() {
