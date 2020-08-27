@@ -36,6 +36,7 @@ public class Account extends Global{
 			System.out.println(me.getKey());
 			aux=aux.findElement(By.xpath("*"));
 			aux.sendKeys(me.getValue());
+			//aux.clear();
 			aux.sendKeys(Keys.ENTER);
 			
 			/*if(aux.findElement(By.xpath("*")).getTagName().equals("input")) {
