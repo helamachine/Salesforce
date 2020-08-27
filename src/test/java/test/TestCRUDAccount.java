@@ -11,7 +11,7 @@ import domain.Account;
 import domain.Global;
 
 import Setup.ExcelReader;
-
+import Setup.URLmaker;
 import domain.Login;
 import factory.FAccount;
 
@@ -47,6 +47,12 @@ public class TestCRUDAccount extends TestingBase {
 		
 	}
 	
+	@Test 
+	public void goToURLCreated() {
+		WebDriver driver = initializeAndLogin("chrome");
+		URLmaker um = new URLmaker(driver);
+		um.goToURLCreated("Account");
+	}
 	@DataProvider(name="accountInfo")
 	public Object[][] data() {
 		ExcelReader excel=new ExcelReader("Data");
