@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import factory.FAccount;
+import utility.GeneralUtilities;
 
 public class Account extends Global{
 	private FAccount fa; 
@@ -35,7 +36,18 @@ public class Account extends Global{
 			WebElement aux=fa.getEditFields(me.getKey());
 			System.out.println(me.getKey());
 			aux=aux.findElement(By.xpath("*"));
+			GeneralUtilities.scrollToViewElement(driver, aux, false);
+			GeneralUtilities.scrollToViewElement(driver, aux, true);
+			
+			if(me.getKey().equals("Parent Account")) {
+				aux=aux.findElement(By.xpath("//input"));
+				aux.click();
+			}
+			if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
+				aux.clear();
+			}
 			aux.sendKeys(me.getValue());
+			GeneralUtilities.waitForLoad(200);
 			aux.sendKeys(Keys.ENTER);
 			
 			/*if(aux.findElement(By.xpath("*")).getTagName().equals("input")) {
