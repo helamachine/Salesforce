@@ -44,7 +44,7 @@ public class ExcelReader {
 	public Object[][] getData() {
 		int rows = getRowCount();
 		int cells = theSheet.getRow(0).getLastCellNum();
-		Object[][] data = new Object[rows - 1][cells];
+		Object[][] data = new Object[rows - 1][1];
 		for(int i=1;i<rows;i++) {
 			HashMap<String,String> hmap=new HashMap<String,String>();
 			for(int j = 0; j<cells;j++) {
