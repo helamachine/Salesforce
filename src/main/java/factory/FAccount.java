@@ -12,8 +12,12 @@ import constant.CtsAccount;
 public class FAccount {
 	
 	WebDriver driver;
+	public FAccount (WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+		}
 	//ACCOUNT TABS
-	@FindBy (css = CtsAccount.detailTab)private WebElement detailTab;
+	@FindBy (xpath = CtsAccount.detailTab)private WebElement detailTab;
 	
 	//ACCOUNT INFO
 	@FindBy (xpath = CtsAccount.AccountName)private WebElement accountName;
@@ -56,14 +60,17 @@ public class FAccount {
 	@FindBy (css = CtsAccount.description)private WebElement description;
 	
 	//ACCOUNT DETAILS
-	//@FindBy (css = CtsAccount.editButton) private WebElement editButton;
+	@FindBy (xpath = CtsAccount.editButton2) private WebElement editButton2;
 	
 	
 	
-	public FAccount (WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		}
+	public WebElement getEditButton2() {
+		return editButton2;
+	}
+
+
+
+	
 
 
 	
@@ -263,7 +270,7 @@ public class FAccount {
 	}
 	
 	public WebElement getEditButton(String label) {
-		return driver.findElement(By.cssSelector(CtsAccount.editButton.replace("$x", label)));
+		return driver.findElement(By.xpath(CtsAccount.editButton.replace("$x", label)));
 	}
 
 }

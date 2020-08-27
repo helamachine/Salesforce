@@ -44,6 +44,7 @@ public class TestCRUDAccount extends TestingBase {
 		WebDriver driver = initializeAndLogin("chrome");
 		Account a=new Account(driver);
 		a.editAccount(args);
+		
 	}
 	
 	@Test 
