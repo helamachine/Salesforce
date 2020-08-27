@@ -36,4 +36,14 @@ public class Global {
 		fg.getInputSearchAppBox().sendKeys(Keys.ENTER);
 		
 	}
+	
+	public void clickNew() {
+		fg.getNewBtn().click();
+	}
+	public void clickSaveAndNew() {
+		fg.getSaveAndNewButton().click();
+	}
+	public void clickSave() {
+		fg.getSaveButton().click();
+	}
 }

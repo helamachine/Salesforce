@@ -19,10 +19,11 @@ public class TestCRUDAccount extends TestingBase {
 	@Test //(dataProvider = "accountInfo")
 	public void createAccount() {
 		WebDriver driver=initializeAndLogin("chrome");
+		Global g=new Global(driver);
+		g.goToApps("Accounts");
+		Account a=new Account(driver);
 		FAccount fa=new FAccount(driver);
 		fa.getDetailTab().click();
-		
-		
 	}
 	
 	/*@DataProvider(name="accountInfo")

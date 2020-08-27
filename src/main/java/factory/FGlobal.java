@@ -28,14 +28,22 @@ public class FGlobal {
 	@FindBy (xpath = CtsGlobal.saveAndNewButton)private WebElement saveAndNewButton;
 	@FindBy (xpath = CtsGlobal.saveButton)private WebElement saveButton;
 	@FindBy (xpath = CtsGlobal.cancelButton)private WebElement cancelButton;
+	@FindBy (css = CtsGlobal.newBtn) private WebElement newBtn;
 	
 	
+	
+
+
 	public FGlobal(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
 
+	public WebElement getNewBtn() {
+		return newBtn;
+	}
+	
 	public WebElement getBtnSearchAppBox() {
 		return btnSearchAppBox;
 	}

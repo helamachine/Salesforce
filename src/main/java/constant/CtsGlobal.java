@@ -18,6 +18,8 @@ public class CtsGlobal {
 		public static final String saveButton = "//*[@title = 'Save']";
 		public static final String cancelButton = "//*[@title = 'Cancel']";
 		
+		public static final String newBtn = "//*[@title = 'New']";
+		
 		//==================REPLACEABLE==========================
 		public static final String xpathTab="//header[@id='oneHeader']/div[@class='bBottom']//one-app-nav-bar-item-root[@data-id='$x']";
 		public static final String itemLink="a[data-label='$x']";
