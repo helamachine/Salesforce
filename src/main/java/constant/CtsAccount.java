@@ -50,7 +50,7 @@ public class CtsAccount {
 	public static final String editButton = "button[title = 'Edit $x']";
 	
 	//INNER EDIT DETAILS
-	public static final String editfields ="//label[text() = '$x']/following-sibling::div";
+	public static final String editFields ="//label[text() = '$x']/following-sibling::div";
 	
 	
 }

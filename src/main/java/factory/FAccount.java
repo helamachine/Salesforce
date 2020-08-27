@@ -1,5 +1,6 @@
 package factory;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -53,6 +54,9 @@ public class FAccount {
 	
 	//DESCRIPTION INFO
 	@FindBy (css = CtsAccount.description)private WebElement description;
+	
+	//ACCOUNT DETAILS
+	//@FindBy (css = CtsAccount.editButton) private WebElement editButton;
 	
 	
 	
@@ -251,6 +255,15 @@ public class FAccount {
 
 	public WebElement getDescription() {
 		return description;
+	}
+	
+	//REPLACEABLE
+	public WebElement getEditFields(String fieldName) {
+		return driver.findElement(By.xpath(CtsAccount.editFields.replace("$x", fieldName)));
+	}
+	
+	public WebElement getEditButton(String label) {
+		return driver.findElement(By.cssSelector(CtsAccount.editButton.replace("$x", label)));
 	}
 
 }
