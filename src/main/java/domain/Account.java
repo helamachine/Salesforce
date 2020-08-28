@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import factory.FAccount;
@@ -39,9 +40,15 @@ public class Account extends Global{
 			GeneralUtilities.scrollToViewElement(driver, aux, false);
 			GeneralUtilities.scrollToViewElement(driver, aux, true);
 			
+			
+			
+			
 			if(me.getKey().equals("Parent Account")) {
+				Actions ac=new Actions(driver);
 				aux=aux.findElement(By.xpath("//input"));
-				aux.click();
+				ac.moveToElement(aux);
+				ac.click();
+				ac.sendKeys(me.getValue());
 			}
 			if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
 				aux.clear();
