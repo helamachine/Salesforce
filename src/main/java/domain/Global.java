@@ -16,13 +16,11 @@ public class Global {
 	WebDriver driver;
 	protected WebDriverWait wait;
 	protected FGlobal fg;
-	protected GeneralUtilities gu;
 	
 	public Global(WebDriver driver) {
 		this.driver=driver;
 		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		fg = new FGlobal(driver);
-		gu = new GeneralUtilities();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 	}
 	
@@ -32,7 +30,7 @@ public class Global {
 		wait.until(ExpectedConditions.visibilityOf(fg.getInputSearchAppBox()));
 		//fg.getInputSearchAppBox().click();
 		fg.getInputSearchAppBox().sendKeys(app);
-		gu.waitForLoad(500);
+		GeneralUtilities.waitForLoad(500);
 		fg.getInputSearchAppBox().sendKeys(Keys.ENTER);
 		
 	}

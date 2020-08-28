@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import factory.FAccount;
@@ -35,30 +34,27 @@ public class Account extends Global{
 		//wait.until(ExpectedConditions.elementToBeClickable(fa.getEditButton("Account Name"))).click();
 		for(Map.Entry<String, String> me : args.entrySet()) {
 			WebElement aux=fa.getEditFields(me.getKey());
-			System.out.println(me.getKey());
 			aux=aux.findElement(By.xpath("*"));
-			GeneralUtilities.scrollToViewElement(driver, aux, false);
-			GeneralUtilities.scrollToViewElement(driver, aux, true);
+			/*GeneralUtilities.scrollToViewElement(driver, aux, false);
+			GeneralUtilities.scrollToViewElement(driver, aux, true);*/
 			
 			
 			
 			
 			if(me.getKey().equals("Parent Account")) {
-				Actions ac=new Actions(driver);
 				aux=aux.findElement(By.xpath("//input"));
-				ac.moveToElement(aux);
-				ac.click();
-				ac.sendKeys(me.getValue());
-			}
-			if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
+				aux.sendKeys(me.getValue());
+			}else if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
 				aux.clear();
+				aux.sendKeys(me.getValue());
+			}else {
+				aux.sendKeys(me.getValue());
+				aux=aux.findElement(By.xpath("*"));
+				wait.until(ExpectedConditions.attributeContains(aux, "aria-expanded", "true"));
 			}
-			aux.sendKeys(me.getValue());
-<<<<<<< HEAD
-			GeneralUtilities.waitForLoad(200);
-=======
+			
+			GeneralUtilities.waitForLoad(100);
 			//aux.clear();
->>>>>>> 2d9917f08ac094ade25c8f49fa2ad45e850618b2
 			aux.sendKeys(Keys.ENTER);
 			
 			/*if(aux.findElement(By.xpath("*")).getTagName().equals("input")) {
