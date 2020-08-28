@@ -54,7 +54,11 @@ public class Account extends Global{
 				aux.clear();
 			}
 			aux.sendKeys(me.getValue());
+<<<<<<< HEAD
 			GeneralUtilities.waitForLoad(200);
+=======
+			//aux.clear();
+>>>>>>> 2d9917f08ac094ade25c8f49fa2ad45e850618b2
 			aux.sendKeys(Keys.ENTER);
 			
 			/*if(aux.findElement(By.xpath("*")).getTagName().equals("input")) {

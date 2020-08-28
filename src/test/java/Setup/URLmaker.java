@@ -19,7 +19,7 @@ public class URLmaker {
 	
 	public String urlMaker(String object) {
 		String urlCreated;
-		String idURL = url.substring(-23, -5);
+		String idURL = url.substring(54, 72);
 		System.out.println(idURL);
 		urlCreated = "https://na172.lightning.force.com/lightning/r/" + object + "/" + idURL +"/view";
 		return urlCreated;
@@ -29,5 +29,6 @@ public class URLmaker {
 	
 		String urlCreated = urlMaker(object);
 		driver.get(urlCreated);
+		System.out.println(urlCreated);
 	}
 }
