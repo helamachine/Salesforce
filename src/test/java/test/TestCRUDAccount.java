@@ -20,15 +20,15 @@ import factory.FAccount;
 @Test
 public class TestCRUDAccount extends TestingBase {
 	
-	@Test //(dataProvider = "accountInfo")
+	/*@Test //(dataProvider = "accountInfo")
 	public void createAccount() {
-		WebDriver driver=initializeAndLogin("chrome");
+		WebDriver driver=initializeAndLoginbyVMarguments("chrome");
 		Global g=new Global(driver);
 		g.goToApps("Accounts");
 		Account a=new Account(driver);
 		FAccount fa=new FAccount(driver);
 		fa.getDetailTab().click();
-	}
+	}*/
 	/*@Test (dataProvider = "accountInfo")
 	public void editAccount(String accountName, String parentAccount, String accountNumber, String rating, String phone, String fax, 
 			String website, String accountSite, String tickerSymbol, String type, String ownership, String industry, String employees, 
@@ -43,7 +43,7 @@ public class TestCRUDAccount extends TestingBase {
 	}*/
 	@Test (dataProvider = "accountInfo")
 	public void editAccountDos(Hashtable<String,String> args) {
-		WebDriver driver = initializeAndLogin("chrome");
+		WebDriver driver = initializeAndLoginbyVMarguments("chrome");
 		Account a=new Account(driver);
 		System.out.println(args.get("Account Name"));
 
@@ -53,7 +53,7 @@ public class TestCRUDAccount extends TestingBase {
 	
 	@Test 
 	public void goToURLCreated() {
-		WebDriver driver = initializeAndLogin("chrome");
+		WebDriver driver = initializeAndLoginbyVMarguments("chrome");
 		URLmaker um = new URLmaker(driver);
 		um.goToURLCreated("Account");
 	}
@@ -64,11 +64,18 @@ public class TestCRUDAccount extends TestingBase {
 		return ob;
 	}
 	
-	public WebDriver initializeAndLogin(String browser) {
+	/*public WebDriver initializeAndLogin(String browser) {
 		WebDriver driver=DriverConfig.getDriverInitializer(browser); 
 		driver.get(url);
 		Login login=new Login(driver);
 		login.login(adminUser, password);
+		return driver;
+	}*/
+	public WebDriver initializeAndLoginbyVMarguments(String browser) {
+		WebDriver driver=DriverConfig.getDriverInitializer(browser); 
+		driver.get(System.getProperty("url"));
+		Login login=new Login(driver);
+		login.login(System.getProperty("email"),System.getProperty("password"));
 		return driver;
 	}
 }

@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -46,15 +47,15 @@ public class ExcelReader {
 		int cells = theSheet.getRow(0).getLastCellNum();
 		Object[][] data = new Object[rows - 1][1];
 		for(int i=1;i<rows;i++) {
-			HashMap<String,String> hmap=new HashMap<String,String>();
+			Hashtable<String,String> htable=new Hashtable<String,String>();
 			for(int j = 0; j<cells;j++) {
 				XSSFCell key=theSheet.getRow(0).getCell(j);
 				key.setCellType(CellType.STRING);
 				XSSFCell value=theSheet.getRow(i).getCell(j);
 				value.setCellType(CellType.STRING);
-				hmap.put(key.toString(), value.toString());
+				htable.put(key.toString(), value.toString());
 			}
-			data[i-1][0]=hmap;
+			data[i-1][0]=htable;
 		}
 		return data;
 	}

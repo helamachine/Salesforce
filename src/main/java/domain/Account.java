@@ -2,6 +2,7 @@ package domain;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -32,7 +33,7 @@ public class Account extends Global{
 		fa.getAccountName().sendKeys(accountName);
 	}
 	
-	public void editAccount(HashMap<String,String> args) {
+	public void editAccount(Hashtable<String,String> args) {
 		wait.until(ExpectedConditions.visibilityOf(fa.getDetailTab())).click();
 		wait.until(ExpectedConditions.elementToBeClickable(fa.getEditButton2())).click();
 		//wait.until(ExpectedConditions.elementToBeClickable(fa.getEditButton("Account Name"))).click();
