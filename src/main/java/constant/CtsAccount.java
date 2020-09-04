@@ -54,7 +54,7 @@ public class CtsAccount {
 	//INNER EDIT DETAILS
 	public static final String editFields ="//label[text() = '$x']/following-sibling::div";
 	//GENERICS
-	
+	public static final String gDropDownLocator="lightning-base-combobox-item[data-value = '$x']";
 	public static final String dropDownMenu="lightning-base-combobox-formatted-text[title='$x']";
 	
 	

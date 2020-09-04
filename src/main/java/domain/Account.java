@@ -36,8 +36,10 @@ public class Account extends Global{
 																	
 			boolean dataInserted=false;																	//Creating condition for data insertion
 			boolean oneWay=false;																		//boolean to scrollIntoView (Up or Down)
-			while(!dataInserted) {																		//While data is not inserted, scroll one way or the other
+			int iterations = 0;
+			while(!dataInserted && iterations <= 2) {																		//While data is not inserted, scroll one way or the other
 				WebElement aux=null;
+				
 				try {																					//try catch to handle exceptions when element is not interactable
 					aux=fa.getEditFields(me.getKey());													//Obtaining div WebElement under label
 					aux=aux.findElement(By.xpath("*"));													//Getting div first child
@@ -47,29 +49,27 @@ public class Account extends Global{
 						aux.click();
 						aux.sendKeys(me.getValue());
 						fa.getDropDownParentAccount(me.getValue()).click();
-						break;																			//breaking while loop in case of correct insertion
 					}else if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
 						aux.clear();
 						aux.sendKeys(me.getValue());
 					}else {
-						aux.sendKeys(me.getValue());
+						aux.click();
 						aux=aux.findElement(By.xpath("*"));
 						wait.until(ExpectedConditions.attributeContains(aux, "aria-expanded", "true"));
 						GeneralUtilities.waitForLoad(300);
+						wait.until(ExpectedConditions.elementToBeClickable(fa.getGdropDownLocator(me.getValue()))).click();
 					}
-					
-					
-					aux.sendKeys(Keys.ENTER);
 					dataInserted=true;
 				}catch(Exception ex) {
-					System.out.println(aux+"===="+aux.toString());
-					ex.printStackTrace();//*****MUST IMPROVE PRECISION WITH CORRECT EXCEPTION****
+					
 					GeneralUtilities.scrollToViewElement(driver,aux.findElement(By.xpath("./..")),oneWay);							//In case of exception, look for element somewhere else
-					oneWay=!oneWay;																		//Executes code twice, 
-					if(!oneWay) {
-						break;
+					oneWay=!oneWay;																									//Executes code twice, 
+					if(iterations==2) {
+						System.out.println(aux+"===="+aux.toString());
+						ex.printStackTrace();//*****MUST IMPROVE PRECISION WITH CORRECT EXCEPTION****
 					}
 				}
+				iterations++;
 			}			
 		}
 		

@@ -272,6 +272,9 @@ public class FAccount {
 	public WebElement getEditButton(String label) {
 		return driver.findElement(By.xpath(CtsAccount.editButton.replace("$x", label)));
 	}
+	public WebElement getGdropDownLocator(String value) {
+		return driver.findElement(By.cssSelector(CtsAccount.gDropDownLocator.replace("$x", value)));
+	}
 
 
 
