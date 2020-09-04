@@ -42,8 +42,14 @@ public class Account extends Global{
 			
 			
 			if(me.getKey().equals("Parent Account")) {
-				aux=aux.findElement(By.xpath("//input"));
-				aux.sendKeys(me.getValue());
+				WebElement parentAccount=driver.findElement(By.xpath("//*[@placeholder='Search Accounts...']"));
+				System.out.println(parentAccount);
+				GeneralUtilities.scrollToViewElement(driver, aux, false);
+				GeneralUtilities.waitForLoad(3000);
+				parentAccount.click();
+				parentAccount.sendKeys(me.getValue());
+				/*aux=aux.findElement(By.xpath("//input"));
+				aux.sendKeys(me.getValue());*/
 			}else if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
 				aux.clear();
 				aux.sendKeys(me.getValue());
