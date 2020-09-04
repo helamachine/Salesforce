@@ -53,6 +53,9 @@ public class CtsAccount {
 	///html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div/div/one-record-home-flexipage2/forcegenerated-adgrollup_component___forcegenerated__flexipage_recordpage___home_page___account___view/forcegenerated-flexipage_home_page_account__view_js/record_flexipage-record-page-decorator/div/slot/flexipage-record-home-template-desktop2/div/div[2]/div[1]/slot/slot/flexipage-component2/slot/flexipage-tabset2/div/lightning-tabset/div/slot/slot/slot/flexipage-tab2[2]/slot/flexipage-component2/slot/records-lwc-detail-panel/records-base-record-form/div/div/div/records-record-layout-event-broker/slot/records-lwc-record-layout/forcegenerated-detailpanel_account___012000000000000aaa___full___view___recordlayout2/force-record-layout-block/slot/force-record-layout-section[1]/div/div/div/slot/force-record-layout-row[2]/slot
 	//INNER EDIT DETAILS
 	public static final String editFields ="//label[text() = '$x']/following-sibling::div";
+	//GENERICS
+	
+	public static final String dropDownMenu="lightning-base-combobox-formatted-text[title='$x']";
 	
 	
 }

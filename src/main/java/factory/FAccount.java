@@ -273,6 +273,16 @@ public class FAccount {
 		return driver.findElement(By.xpath(CtsAccount.editButton.replace("$x", label)));
 	}
 
+
+
+
+
+
+
+	public WebElement getDropDownParentAccount(String value) {
+		return driver.findElement(By.cssSelector(CtsAccount.dropDownMenu.replace("$x", value)));
+	}
+
 }
 
 
