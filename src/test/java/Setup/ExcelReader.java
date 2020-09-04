@@ -47,7 +47,11 @@ public class ExcelReader {
 		int cells = theSheet.getRow(0).getLastCellNum();
 		Object[][] data = new Object[rows - 1][1];
 		for(int i=1;i<rows;i++) {
+<<<<<<< HEAD
 			Hashtable<String,String> htable=new Hashtable<String,String>();
+=======
+			Hashtable<String,String> hmap=new Hashtable<String,String>();
+>>>>>>> 2c06b038f17410cf5cbd57d704f4c12864754ee9
 			for(int j = 0; j<cells;j++) {
 				XSSFCell key=theSheet.getRow(0).getCell(j);
 				key.setCellType(CellType.STRING);

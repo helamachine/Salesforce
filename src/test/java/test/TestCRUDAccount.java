@@ -1,21 +1,15 @@
 package test;
 
-import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Map;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Setup.DriverConfig;
 import domain.Account;
-import domain.Global;
-
 import Setup.ExcelReader;
 import Setup.URLmaker;
 import domain.Login;
-import factory.FAccount;
 
 @Test
 public class TestCRUDAccount extends TestingBase {
@@ -28,6 +22,7 @@ public class TestCRUDAccount extends TestingBase {
 		Account a=new Account(driver);
 		FAccount fa=new FAccount(driver);
 		fa.getDetailTab().click();
+<<<<<<< HEAD
 	}*/
 	/*@Test (dataProvider = "accountInfo")
 	public void editAccount(String accountName, String parentAccount, String accountNumber, String rating, String phone, String fax, 
@@ -40,12 +35,18 @@ public class TestCRUDAccount extends TestingBase {
 		Account a=new Account(driver);
 		//a.editAccount(accountName, parentAccount, accountNumber, rating, phone, fax, website, accountSite, tickerSymbol, type, ownership, industry, employees, annualRevenue, sicCode, billingStreet, shippingStreet, billingZipPostalCode, shippingZipPostalCode, billingCity, billingStateProvince, shippingCity, shippingStateProvince, billingCountry, shippingCountry, customerPriority, sla, slaExpirationDate, slaSerialNumber, numberOfLocations, upsellOpportunity, active, description);
 		
+=======
+>>>>>>> 2c06b038f17410cf5cbd57d704f4c12864754ee9
 	}*/
+	
 	@Test (dataProvider = "accountInfo")
 	public void editAccountDos(Hashtable<String,String> args) {
+<<<<<<< HEAD
 		WebDriver driver = initializeAndLoginbyVMarguments("chrome");
+=======
+		WebDriver driver = initializeAndLoginWithVMArguments("chrome");
+>>>>>>> 2c06b038f17410cf5cbd57d704f4c12864754ee9
 		Account a=new Account(driver);
-		System.out.println(args.get("Account Name"));
 
 		a.editAccount(args);
 		
@@ -76,6 +77,13 @@ public class TestCRUDAccount extends TestingBase {
 		driver.get(System.getProperty("url"));
 		Login login=new Login(driver);
 		login.login(System.getProperty("email"),System.getProperty("password"));
+		return driver;
+	}
+	public WebDriver initializeAndLoginWithVMArguments(String browser) {
+		WebDriver driver=DriverConfig.getDriverInitializer(browser); 
+		driver.get(System.getProperty("url"));
+		Login login=new Login(driver);
+		login.login(System.getProperty("email"), System.getProperty("password"));
 		return driver;
 	}
 }
