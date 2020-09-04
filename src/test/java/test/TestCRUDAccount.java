@@ -1,6 +1,8 @@
 package test;
 
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
@@ -40,9 +42,11 @@ public class TestCRUDAccount extends TestingBase {
 		
 	}*/
 	@Test (dataProvider = "accountInfo")
-	public void editAccountDos(HashMap<String,String> args) {
+	public void editAccountDos(Hashtable<String,String> args) {
 		WebDriver driver = initializeAndLogin("chrome");
 		Account a=new Account(driver);
+		System.out.println(args.get("Account Name"));
+
 		a.editAccount(args);
 		
 	}

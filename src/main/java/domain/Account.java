@@ -38,20 +38,40 @@ public class Account extends Global{
 		//wait.until(ExpectedConditions.elementToBeClickable(fa.getEditButton("Account Name"))).click();
 		for(Map.Entry<String, String> me : args.entrySet()) {
 			WebElement aux=fa.getEditFields(me.getKey());
-			System.out.println(me.getKey());
 			aux=aux.findElement(By.xpath("*"));
-			GeneralUtilities.scrollToViewElement(driver, aux, false);
-			GeneralUtilities.scrollToViewElement(driver, aux, true);
+			/*GeneralUtilities.scrollToViewElement(driver, aux, false);
+			GeneralUtilities.scrollToViewElement(driver, aux, true);*/
+			
+			
+			
 			
 			if(me.getKey().equals("Parent Account")) {
+
 				aux=aux.findElement(By.xpath("//input"));
 				//aux.click();
 				//WebElement ele = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("xpath de el li[5]")));
 				//ele.click();
 			}
 			if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
+
+				WebElement parentAccount=driver.findElement(By.xpath("//*[@placeholder='Search Accounts...']"));
+				System.out.println(parentAccount);
+				GeneralUtilities.scrollToViewElement(driver, aux, false);
+				GeneralUtilities.waitForLoad(3000);
+				parentAccount.click();
+				parentAccount.sendKeys(me.getValue());
+				/*aux=aux.findElement(By.xpath("//input"));
+				aux.sendKeys(me.getValue());*/
+			}else if(aux.getTagName().equals("input") || aux.getTagName().equals("textarea")) {
+
 				aux.clear();
+				aux.sendKeys(me.getValue());
+			}else {
+				aux.sendKeys(me.getValue());
+				aux=aux.findElement(By.xpath("*"));
+				wait.until(ExpectedConditions.attributeContains(aux, "aria-expanded", "true"));
 			}
+
 			aux.sendKeys(me.getValue());
 
 			GeneralUtilities.waitForLoad(200);
