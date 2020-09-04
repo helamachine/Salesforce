@@ -3,6 +3,28 @@
   <groupId>Third</groupId>
   <artifactId>ThirdTrainingProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<parallel>true</parallel>
+					<groups>${groups}</groups>
+					<threadCount>6</threadCount>
+						<!-- <include>**/${testGroup}/*Test.Java</include> -->
+						<!--<include>**/${Tests}</include> -->
+						<!---Dgroups=Non-Funtional (esto va en JRE de mvn config) -->
+
+
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
   <dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
