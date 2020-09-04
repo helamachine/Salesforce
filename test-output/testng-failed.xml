@@ -5,7 +5,7 @@
     <classes>
       <class name="test.TestCRUDAccount">
         <methods>
-          <include name="createAccount"/>
+          <include name="editAccountDos" invocation-numbers="0"/>
         </methods>
       </class> <!-- test.TestCRUDAccount -->
     </classes>
